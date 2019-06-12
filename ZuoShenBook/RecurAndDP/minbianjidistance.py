@@ -7,6 +7,9 @@
 '''
 最小编辑距离
 '''
+'''
+这里dp[i][j]的含义有些不同，因为要考虑空串，所以dp[i][j]不是对应str1[0...i]和str2[0...j],而是str1[0...i-1]。。。
+'''
 def minCost1(str1, str2, ic, dc, rc):
     if not str1 or not str2 :
         return 0

@@ -23,7 +23,7 @@ def minHP1(m):
         dp[i][cols-1] = max(dp[i+1][cols-1]-m[i][cols-1], 1)
     for i in range(rows-2, -1, -1):
         for j in range(cols-2,-1,-1):
-            right = max(dp[i][j+1]-m[i][j], 1)
+            right = max(dp[i][j+1]-m[i][j], 1)    #和1取最大是为了排除加血可能产生的影响。
             down = max(dp[i+1][j-1]-m[i][j],1)
             dp[i][j] = min(right,down)
     return dp[0][0]

@@ -14,7 +14,8 @@
 def mostEOR(arr):
     if not arr or len(arr)==0:
         return 0
-    # eor = 0    ==>这里应该是左神出错了，这里初值赋值为0没问题，但是后续for循环从1开始，arr[0]的值没有异或到eor中。
+    # eor = 0    #==>这里应该是左神出错了，这里初值赋值为0没问题，但是后续for循环从1开始，arr[0]的值没有异或到eor中 。
+                # 因为吧第一个数字直接放进了map中，似乎是因为这样才没出错？？？
     dp = [0 for i in range(len(arr))]
     mapdict = {}
     mapdict[0] = -1
@@ -23,15 +24,21 @@ def mostEOR(arr):
     eor = arr[0]    #==》修正，把arr[0]的值异或进eor中。
     for i in range(1, len(arr)):
         eor ^=arr[i]
+        print('i:',i, 'eor:',eor)
         if eor in mapdict.keys():
+            print('in keys')
+            print(mapdict)
             preEorIndex = mapdict[eor]
             dp[i] = 1 if preEorIndex==-1 else dp[preEorIndex]+1
         dp[i] = max(dp[i-1], dp[i])
         mapdict[eor] = i
+        print('dp[{}]: {}; dp[{}]:{}'.format(i-1, dp[i-1], i, dp[i]))
     print(eor)
+    print(dp)
     return dp[-1]
 
 if __name__ == '__main__':
-    # arr = [3,2,1,9,0,7,0,2,1,3]
-    arr = [6,3,2,1]
+    arr = [3,2,1,9,0,7,0,2,1,3]
+    # arr = [6,3,2,1]
     print(mostEOR(arr))
+
