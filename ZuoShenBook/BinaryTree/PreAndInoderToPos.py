@@ -10,6 +10,19 @@
 '''
 
 def setPos(pre, pi, pj, inoder, ini, inj, pos, posi, mapdict):
+    '''
+
+    :param pre:
+    :param pi:
+    :param pj:
+    :param inoder:
+    :param ini:
+    :param inj:
+    :param pos:
+    :param posi:
+    :param mapdict:  记录中序数组中每个数字的下表位置
+    :return:  返回后续list下一个要填写的位置
+    '''
     if pi>pj:
         return posi
     pos[posi] = pre[pi]
@@ -22,7 +35,7 @@ def setPos(pre, pi, pj, inoder, ini, inj, pos, posi, mapdict):
     return posi
 
 def getPosArray(pre, inorder):
-    #要根据pre中的值，迅速找到inorder中相应值所在的位置，从而划分出左右子序列。
+    # 要根据pre中的值，迅速找到inorder中相应值所在的位置，从而划分出左右子序列。
     if not pre or not inorder:
         return None
     length = len(pre)
