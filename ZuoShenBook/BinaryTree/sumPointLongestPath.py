@@ -23,6 +23,7 @@ def proOrder(head, k, preSum, level, maxLen, sumDict):
         sumDict[curSum] = level
     if curSum - k in sumDict.keys():
         maxLen = max(maxLen, level- sumDict[curSum-k])
+    #先序遍历 dfs
     maxLen = proOrder(head.left, k, curSum, level+1, maxLen, sumDict)
     maxLen = proOrder(head.right, k, curSum, level+1, maxLen, sumDict)
 

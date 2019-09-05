@@ -9,6 +9,11 @@
 
 
 # Definition for a binary tree node.
+
+'''
+方法一: 两轮遍历二叉树， 一轮先序遍历(循环)， 遍历每个节点，从该节点作为头结点然后开始先序遍历
+(递归)计算路径和，全局变量计算target出现次数。
+'''
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -41,9 +46,10 @@ class Solution:
         return self.count
 
 '''最优解，借鉴左神书未排序数组中累加和为给定值的最长子数组系列问题， page 384'''
+'''和page119的题也很像'''
 class Solution:
     def pathSum(self, root: TreeNode, target: int) -> int:
-        from collections import defaultdict
+        from collections import defaultdict     #这个字典有默认值0，
         if not root:
             return 0
         res  = 0

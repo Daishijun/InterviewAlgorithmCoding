@@ -23,6 +23,8 @@ def isValid(string):
                 return False
     return statues==0
 
+
+#动态规划
 def maxLength(string):
     if not string or string == '':
         return 0

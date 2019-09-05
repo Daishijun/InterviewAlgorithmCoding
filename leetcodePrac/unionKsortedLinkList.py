@@ -41,7 +41,7 @@ class Solution(object):
         amount = len(lists)
         interval = 1
         while interval < amount:
-            for i in range(0, amount - interval, interval * 2):
+            for i in range(0, amount - interval, interval * 2):    #这里的interval和下面的i+interval需要学习，而且这里的末尾边界也要根据interval每轮更改。
                 lists[i] = self.merge2Lists(lists[i], lists[i + interval])
             interval *= 2
         return lists[0] if amount > 0 else lists

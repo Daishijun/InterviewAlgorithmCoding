@@ -34,7 +34,7 @@ class Solution:
 
 
 '''leetcode 980 不同路径III'''
-
+'''深度优先遍历， 回溯'''
 
 class Solution:
     def uniquePathsIII(self, grid) -> int:
@@ -80,6 +80,10 @@ class Solution:
             return res
         res = dfs(grid, zorecount+1, starti, startj)
         return res
+
+'''动态规划'''
+
+
 
 if __name__ == '__main__':
     mat = [[1,0,0,0],[0,0,0,0],[0,0,0,2]]

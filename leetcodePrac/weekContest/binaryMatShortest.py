@@ -10,7 +10,7 @@
 '''
 宽度优先遍历，每深入一层，path +=1 ；当遇到最后的点的时候返回path，遍历都没找到path就返回-1
 
-这里学到了用两个queue交替来实现宽度优先遍历
+这里学到了用两个queue交替来实现宽度优先遍历（对应树的层次遍历）
 '''
 
 class Solution:
@@ -40,7 +40,7 @@ class Solution:
                     else:
                         nextstack.append([newx, newy])
                         visited[newx][newy] = 1
-            stack = nextstack
+            stack = nextstack    #到下一层
             res +=1
         return -1
 

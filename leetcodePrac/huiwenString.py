@@ -7,7 +7,9 @@
 
 '''Leetcode 647 回文子串'''
 
-
+'''
+在manacher的基础上，根据每次的回文半径，计算第i位置为中心的回文子串个数，做累加。
+'''
 class Solution:
     def countSubstrings(self, s) -> int:
 
@@ -38,7 +40,9 @@ class Solution:
             count += pArr[i]>>1
         return count
 
-'''leetcode 5 最长回文子串, 返回子串'''
+'''leetcode 5 最长回文子串, 返回子串
+Manacher 做法
+'''
 
 
 class Solution:
@@ -91,9 +95,9 @@ class Solution:
         n = len(s)
         start = 0
         for i in range(1, n):
-            even = s[i - max_len:i + 1]
+            even = s[i - max_len:i + 1]    #偶数    #并不是以i位置字符为中心，而是以i位置为结尾
             print('iter:', i, '\teven:', even)
-            odd = s[i - max_len - 1:i + 1]
+            odd = s[i - max_len - 1:i + 1]    #奇数
             print('iter:', i, '\todd:', odd, 'i-maxlen-1:', i - max_len - 1)
             # print(even,odd)
             if i - max_len - 1 >= 0 and odd == odd[::-1]:

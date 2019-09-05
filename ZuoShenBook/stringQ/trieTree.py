@@ -46,6 +46,7 @@ class TrieTree():
         return node.end != 0
 
     def delete(self, word):
+        ## 删除前先查找到Word
         if self.search(word):
             node = self.root
             node.path -=1
@@ -70,12 +71,24 @@ class TrieTree():
         return node.path
 
 if __name__ == '__main__':
-    trie = TrieTree()
-    trie.insert('abc')
-    trie.insert('abcd')
-    trie.insert('abd')
-    trie.insert('b')
-    print(trie.search('abc'))
-    print(trie.search('abe'))
-    print(trie.prefixNum('ab'))
+    # trie = TrieTree()
+    # trie.insert('abc')
+    # trie.insert('abcd')
+    # trie.insert('abd')
+    # trie.insert('b')
+    # print(trie.search('abc'))
+    # print(trie.search('abe'))
+    # print(trie.prefixNum('ab'))
+    a = -6
+    b = 9
+    c = 6
+    print(a^b)
+    print(a^c)
+    print(-1^-6)
+
+
+
+
+
+
 

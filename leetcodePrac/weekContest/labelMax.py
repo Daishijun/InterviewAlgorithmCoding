@@ -16,7 +16,7 @@
 class Solution:
     def largestValsFromLabels(self, values, labels, num_wanted: int, use_limit: int) -> int:
         values, labels = (list(t) for t in zip(*sorted(zip(values, labels), reverse=True)))
-        countmap = {}
+        countmap = {}    #统计每个label被选择的次数
         res = 0
         ind = 0
         while num_wanted:

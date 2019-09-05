@@ -28,6 +28,7 @@ def matPower(mat, power):    #用power的二进制每个位上的1,0表示， �
     return res
 
 
+'''剑指offer的幂次计算'''
 def powerWithUnsignedExp(base, exp):
     '''
     实现

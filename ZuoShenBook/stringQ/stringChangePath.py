@@ -28,19 +28,25 @@ def getNexts(words):
     :param words:
     :return:
     '''
-    # wordset = set(words)
+    # wordset = set(words)    #这里转成set是因为在set中查询的速度比子list中查询要快。
     nexts = {}
     for word in words:
         nexts[word] = getNext(word, words)
     return nexts
 
 def getDistances(start, nexts):
+    '''
+
+    :param start:  开始位置的字符串
+    :param nexts:  nexts信息，邻接字典
+    :return:   返回不同字符串到start的距离。
+    '''
     distances = {}
     distances[start] = 0
     queue = [start]
     hset = set()
-    hset.add(start)
-    while queue:
+    hset.add(start)    #遍历过的字符串进入set
+    while queue:    #借助队列实现宽度优先
         cur = queue.pop(0)
         for stri in nexts[cur]:
             if stri not in hset:
@@ -69,6 +75,15 @@ def getShortestPaths(cur, to, nexts, distances, solution, res):
                 getShortestPaths(next, to, nexts, distances, solution, res)
 
     solution.pop()
+
+def findMinPaths(start, to, wordlist):
+    wordlist.appends(start)
+    nexts = getNexts(wordlist)
+    distancs = getDistances(start, nexts)
+    pathlist = []
+    res = []
+    getShortestPaths(start, to, nexts, distancs, pathlist, res)
+    return res
 
 
 if __name__ == '__main__':

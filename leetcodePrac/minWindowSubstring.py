@@ -108,5 +108,6 @@ if __name__ == '__main__':
     T = "a"
     # S = Solution()
     # print(S.minWindow(string, T))
-    print(minwindow(string, T))
+    # print(minwindow(string, T))
+    adi = {1:2,3:9}
 

@@ -8,6 +8,9 @@
 '''
 数组中的最长连续序列
 '''
+'''
+合并时更新两个端点的最长长度，mapdict记录key ==》arr中的数字， value ==》最长序列长度
+'''
 
 def merge(mapdict, less, more):
     left = less - mapdict[less]+1

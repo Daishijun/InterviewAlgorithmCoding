@@ -76,7 +76,7 @@ def coins3_dp(arr, aim):
 
     return mapdp[-1][aim]    #使用所有面额的钞票。
 
-def coins4_dp(arr, aim):
+def coins4_dp(arr, aim):    #书上的根据递推来的，很像背包问题
     if not arr or aim<0:
         return 0
     dp = [[0 for i in range(aim+1)] for j in range(len(arr))]
@@ -146,3 +146,5 @@ if __name__ =='__main__':
     print(coins5_dp_yasuo(arr, aim))
     print(coins6_try(arr,aim))
     print(coins6_yasuo(arr, aim))
+
+

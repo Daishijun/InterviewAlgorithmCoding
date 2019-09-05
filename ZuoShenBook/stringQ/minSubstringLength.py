@@ -5,7 +5,12 @@
 # @File    : minSubstringLength.py
 # Software : PyCharm
 '''
+最小包含子串的长度
 string1的子串中包含string2全部字符的最短子串长度
+'''
+
+'''
+双指针， map记录待匹配字符
 '''
 
 

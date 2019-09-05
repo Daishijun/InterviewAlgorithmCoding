@@ -49,6 +49,7 @@ def solution2(nLevel, kChess):
             dp[i][j] = minstep +1
     return dp[nLevel][kChess]
 
+#空间压缩，用两个数组preArr 和curArr记录i-1层楼时的情况，根据preArr推出curArr。；
 
 def solution3(nLevel, kChess):
     if nLevel<1 or kChess<1:
@@ -84,7 +85,7 @@ def solution4(nLevel, kChess):    ###四边形不等式还是没理解
     cands = [0 for i in range(kChess+1)]    #与dp的列数相同    , 表示在有index+1 个棋子时， 第一个棋子最优情况下 扔 在哪个位置
     for i in range(1, kChess+1):
         dp[1][i] = 1    #只有1层，只要有棋子，都只需要尝试1次。
-        cands[i] = 1    #棋子仍在第1层
+        cands[i] = 1    #不管总共有几个棋子（i）个，第一个棋子都要仍在第一层。
 
     for i in range(2, nlevel+1):
         for j in range(kChess, 1, -1):    #cands[]从右向左更新，更新了的表示解决i层楼问题， 未更新的表示解决i-1层楼问题
@@ -93,11 +94,11 @@ def solution4(nLevel, kChess):    ###四边形不等式还是没理解
             maxEnum = i//2+1    #当前楼层总数的一半。
             if j != kChess:
                 maxEnum = cands[j+1]    #使用j+1个棋子解决i层楼的最优解时候，第一个棋子扔下的楼层， 作为使用j个棋子解决i层楼问题的上界
-            for  k in range(minEnum, maxEnum+1):
+            for  k in range(minEnum, maxEnum+1):    #第一个棋子扔的楼层数
                 cur  = max(dp[k-1][j-1], dp[i-k][j])
                 if cur<= minstep:   #需要更新最小扔的次数了, 即此时选择的第一个棋子所扔的楼层才是最好的
                     minstep = cur
-                    cands[j] = k
+                    cands[j] = k    #更新总共有i层楼，J个棋子的情况下，第一个棋子扔在第几层。 用来在计算第i+1层时的第一棋子位置上下界。
             dp[i][j] = minstep+1
     return dp[nLevel][kChess]
 

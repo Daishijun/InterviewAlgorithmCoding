@@ -18,12 +18,17 @@ def bag(n ,c, wlist, vlist):
     return valuel[-1][-1]
 
 if __name__ == '__main__':
-    N = int(input())
-    vlists= list(map(int, input().split()))
-    weights = list(map(int, input().split()))
-    T = int(input())
-    print('weights:', weights)
-    print('valist:', vlists)
+    # N = int(input())
+    # vlists= list(map(int, input().split()))
+    # weights = list(map(int, input().split()))
+    # T = int(input())
+    # print('weights:', weights)
+    # print('valist:', vlists)
+    #
+    # bag(n=N, c=T, wlist=weights, vlist=vlists)
 
-    bag(n=N, c=T, wlist=weights, vlist=vlists)
+    a = [1,2,3]
+    b = [3,2,4]
+
+    print(a)
 

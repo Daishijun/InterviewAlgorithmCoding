@@ -30,7 +30,13 @@ class Node():
         self.left = None
         self.right = None
 
+
 def cloneTree(head):
+    '''
+    递归复制一颗树
+    :param head:
+    :return:
+    '''
     if not head:
         return None
     res = Node(head.value)

@@ -46,6 +46,10 @@ def getPalindromel(string):
     print(res)
     return ''.join(res)
 
+
+### 进阶问题， 额外给出给定字符串string的最长回文子序列。仍然求添加最少字符情况下，使字符串变成回文的结果。
+
+### 剥洋葱， 给出的最长回文子序列相当于每一层的洋葱。
 def setres(res, resL, resR, string, tmpL, stringL, stringR, tmpR):
     for i in range(tmpL, stringL):
         res[resL] = string[i]

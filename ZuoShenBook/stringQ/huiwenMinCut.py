@@ -9,6 +9,10 @@
 '''
 #把给定字符串string全部切成回文子串，求最小切割次数
 
+'''
+    动态规划，涉及两个dp数组，一个是最小分割数，一个是是否构成回文。
+'''
+
 def minCut(string):
     if not string or string=='':
         return 0
@@ -20,7 +24,7 @@ def minCut(string):
         dp[i] = float('inf')
         for j in range(i, len(string)):
             if string[i]==string[j] and (j-i <2 or pmat[i+1][j-1]):
-                pmat[i][j] = 1
+                pmat[i][j] = 1    #string[i:j+1]是回文串。
                 dp[i] = min(dp[i], dp[j+1]+1)    #如果不多设置一个元素的话，这里需要根据j是否处于最后一个位置，分情况定义。
         print('dp[{i}]={dp}'.format(i=i, dp=dp[i]))
     return dp[0]
